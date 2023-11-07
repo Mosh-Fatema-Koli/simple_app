@@ -30,6 +30,13 @@ class HomePage extends StatelessWidget {
          Padding(
            padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
            child: Card(
+               elevation: 0,
+               shape: RoundedRectangleBorder(
+                 side: BorderSide(
+                   color:  Colors.grey.withOpacity(.5),
+                 ),
+                 borderRadius: const BorderRadius.all(Radius.circular(12)),
+               ),
                child: TextFormField(
              decoration: InputDecoration(
                  border: InputBorder.none,

@@ -149,6 +149,7 @@ import 'package:get/get.dart';
 import 'package:simple_app/src/view/const/text_style.dart';
 import 'package:simple_app/src/view/screen/home/model/home_model.dart';
 import 'package:simple_app/src/view/screen/main_page/nav_bar.dart';
+import 'package:simple_app/src/view/widget/nav_global.dart';
 
 class BlogDetails extends StatelessWidget {
 
