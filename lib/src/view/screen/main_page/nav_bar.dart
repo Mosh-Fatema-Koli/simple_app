@@ -40,7 +40,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             )),
         actions: [
           SizedBox(
-            width: 50,
+            width: 60,
           ),
         ],
       ),

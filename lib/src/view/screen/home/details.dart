@@ -168,7 +168,9 @@ class BlogDetails extends StatelessWidget {
       backgroundColor: Colors.white,
        appBar: AppBar(
     backgroundColor: Colors.white,
-    elevation: 5,
+         surfaceTintColor: Colors.white,
+         elevation: 5,
+         shadowColor: Colors.grey,
     leading: IconButton(
       onPressed: () {
         Get.back();
@@ -184,7 +186,7 @@ class BlogDetails extends StatelessWidget {
     ),
     actions: [
       SizedBox(
-        width: 50,
+        width: 60,
       ),
     ],
   ),
