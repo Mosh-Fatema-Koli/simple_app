@@ -152,54 +152,56 @@ import 'package:simple_app/src/view/screen/main_page/nav_bar.dart';
 import 'package:simple_app/src/view/widget/nav_global.dart';
 
 class BlogDetails extends StatelessWidget {
-
   final String id;
   final String title;
   final String userId;
   final String body;
 
-  BlogDetails({ required this.userId,required this.title,required this.id,required this.body,Key? key}) : super(key: key);
-
-
+  BlogDetails(
+      {required this.userId,
+      required this.title,
+      required this.id,
+      required this.body,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-       appBar: AppBar(
-    backgroundColor: Colors.white,
-         surfaceTintColor: Colors.white,
-         elevation: 5,
-         shadowColor: Colors.grey,
-    leading: IconButton(
-      onPressed: () {
-        Get.back();
-      },
-      icon: Icon(Icons.arrow_back_ios),
-    ),
-    title: Center(
-      child: Text(
-        "Application",
-        style: TextStyle(fontWeight: FontWeight.bold),
-        textAlign: TextAlign.center,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+        elevation: 5,
+        shadowColor: Colors.grey,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
+        title: Center(
+          child: Text(
+            "Application",
+            style: TextStyle(fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        actions: [
+          SizedBox(
+            width: 60,
+          ),
+        ],
       ),
-    ),
-    actions: [
-      SizedBox(
-        width: 60,
-      ),
-    ],
-  ),
       body: Stack(
         children: [
           buildBackgroundImage(),
           Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: buildPostDetailsCard()
-          ),
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: buildPostDetailsCard()),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -210,13 +212,12 @@ class BlogDetails extends StatelessWidget {
         },
         child: Image.asset("assets/12.png"),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,// Display the selected page.
+      floatingActionButtonLocation: FloatingActionButtonLocation
+          .centerDocked, // Display the selected page.
 
       bottomNavigationBar: BottomNavBarPage(),
     );
   }
-
-
 
   Widget buildBackgroundImage() {
     return SizedBox(
@@ -247,22 +248,20 @@ class BlogDetails extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    "Content ID: ${id??""}",
+                    "Content ID: ${id ?? ""}",
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                  Text(
-                    "${title ??""}",
-                    style:AppTextStyle.titleTextStyle
-                  ),
+                  Text("${title ?? ""}", style: AppTextStyle.titleTextStyle),
+                  SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "User ID: ${userId??""}",
+                        "User ID: ${userId ?? ""}",
                         style: AppTextStyle.id,
                       ),
                       buildCopyLinkButton(),
@@ -273,10 +272,7 @@ class BlogDetails extends StatelessWidget {
                     color: Colors.pink,
                   ),
                   SizedBox(height: 5),
-                  Text(
-                    "${body??""}",
-                    style: AppTextStyle.subTextStyle
-                  ),
+                  Text("${body ?? ""}", style: AppTextStyle.subTextStyle,textAlign: TextAlign.start, ),
                   SizedBox(height: 5),
                 ],
               ),

@@ -1,4 +1,5 @@
 
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -6,26 +7,31 @@ import 'package:simple_app/src/view/const/text_style.dart';
 import 'package:simple_app/src/view/screen/home/controller/home_controller.dart';
 import 'package:simple_app/src/view/screen/home/details.dart';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:simple_app/src/view/screen/home/controller/home_controller.dart';
-import 'package:simple_app/src/view/screen/home/details.dart';
-import 'package:simple_app/src/view/screen/home/model/home_model.dart';
-
-
-
 
 class PostList extends StatelessWidget {
   PostList({Key? key}) : super(key: key);
 
   final HomeController postController = Get.put(HomeController());
+  var connectivityResult = Connectivity().checkConnectivity();
+
   @override
   Widget build(BuildContext context) {
     return Obx(
           () {
-        if (postController.posts.isEmpty) {
+            if(postController.isLoading.value == true){
+              return Center(child: CircularProgressIndicator());
+            }
+             else if (postController.posts.isEmpty) {
           return Center(child: CircularProgressIndicator());
-        } else {
+        } else if (connectivityResult == ConnectivityResult.none) {
+              // No internet connection
+              return Center(
+                child: Text(
+                  "No data available",
+                  style: TextStyle(color: Colors.red),
+                ),
+              );
+            }else {
           return ListView.builder(
             itemCount: postController.posts.length,
             shrinkWrap: true,

@@ -42,6 +42,7 @@ dependencies:
   google_fonts:
   path:
   hexcolor:
+  connectivity:
 
 
 

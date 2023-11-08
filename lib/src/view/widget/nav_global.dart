@@ -34,6 +34,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
       elevation: 15,
       notchMargin: 15,
       height: 65,
+      shadowColor: Colors.grey,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: _tabItems.asMap().entries.map((entry) {
